@@ -13,7 +13,7 @@ data class UserSubscriptionDTO(
     val startDate: LocalDateTime? = null,
     val modifiedDate: LocalDateTime? = null,
     val endDate: LocalDateTime? = null,
-    val subscriptionType: SubscriptionType,
+    val subscriptionType: SubscriptionType? = null,
     val status: SubscriptionStatus,
-    val leagues: Integer
+    val leagues: Integer? = null,
 )

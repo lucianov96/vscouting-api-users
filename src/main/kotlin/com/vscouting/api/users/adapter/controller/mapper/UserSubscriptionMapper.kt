@@ -5,6 +5,7 @@ import com.vscouting.api.users.adapter.controller.model.request.UserUpdateSubscr
 import com.vscouting.api.users.adapter.controller.model.response.UserSubscriptionResponse
 import com.vscouting.api.users.domain.UserSubscriptionDTO
 import com.vscouting.api.users.domain.enum.SubscriptionStatus
+import java.util.UUID
 
 fun UserSubscriptionDTO.toResponse() = UserSubscriptionResponse(
     id = id,
@@ -12,14 +13,14 @@ fun UserSubscriptionDTO.toResponse() = UserSubscriptionResponse(
     startDate = startDate,
     modifiedDate = modifiedDate,
     endDate = endDate,
-    subscriptionType = subscriptionType,
+    subscriptionType = subscriptionType!!,
     status = UserSubscriptionResponse.UserSubscriptionStatusResponse(
         name = status,
         value = status.value,
         action = status.action.value,
         description = status.description
     ),
-    leagues = leagues
+    leagues = leagues!!
 )
 
 fun UserSubscriptionRequest.toDTO() = UserSubscriptionDTO(
@@ -28,10 +29,8 @@ fun UserSubscriptionRequest.toDTO() = UserSubscriptionDTO(
     status = SubscriptionStatus.SUBSCRIPTION_PENDING
 )
 
-fun UserUpdateSubscriptionRequest.toDTO() = UserSubscriptionDTO(
+fun UserUpdateSubscriptionRequest.toDTO(id: UUID) = UserSubscriptionDTO(
     id = id,
-    subscriptionType = subscriptionType,
-    leagues = leagues,
     amount = amount,
     serviceAmount = serviceAmount,
     status = status

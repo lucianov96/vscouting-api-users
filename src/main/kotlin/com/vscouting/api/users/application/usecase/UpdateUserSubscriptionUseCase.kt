@@ -30,16 +30,16 @@ class UpdateUserSubscriptionUseCase(
         subscriptionDTO: UserSubscriptionDTO
     ): UserSubscriptionDTO {
         return UserSubscriptionDTO(
-            id = subscriptionDTO.id ?: userSubscriptionDTO.id,
-            amount = subscriptionDTO.amount ?: userSubscriptionDTO.amount,
-            amountDiff = subscriptionDTO.amountDiff ?: userSubscriptionDTO.amountDiff,
-            serviceAmount = subscriptionDTO.serviceAmount ?: userSubscriptionDTO.serviceAmount,
-            startDate = subscriptionDTO.startDate ?: userSubscriptionDTO.startDate,
-            modifiedDate = subscriptionDTO.modifiedDate ?: userSubscriptionDTO.modifiedDate,
-            endDate = subscriptionDTO.endDate ?: userSubscriptionDTO.endDate,
-            subscriptionType = subscriptionDTO.subscriptionType ?: userSubscriptionDTO.subscriptionType,
-            status = subscriptionDTO.status ?: userSubscriptionDTO.status,
-            leagues = subscriptionDTO.leagues ?: userSubscriptionDTO.leagues,
+            id = userSubscriptionDTO.id ?: subscriptionDTO.id,
+            amount = userSubscriptionDTO.amount ?: subscriptionDTO.amount,
+            amountDiff = userSubscriptionDTO.amountDiff ?: subscriptionDTO.amountDiff,
+            serviceAmount = userSubscriptionDTO.serviceAmount ?: subscriptionDTO.serviceAmount,
+            startDate = userSubscriptionDTO.startDate ?: subscriptionDTO.startDate,
+            modifiedDate = userSubscriptionDTO.modifiedDate ?: subscriptionDTO.modifiedDate,
+            endDate = userSubscriptionDTO.endDate ?: subscriptionDTO.endDate,
+            subscriptionType = userSubscriptionDTO.subscriptionType ?: subscriptionDTO.subscriptionType,
+            status = userSubscriptionDTO.status ?: subscriptionDTO.status,
+            leagues = userSubscriptionDTO.leagues ?: subscriptionDTO.leagues,
         )
     }
 
