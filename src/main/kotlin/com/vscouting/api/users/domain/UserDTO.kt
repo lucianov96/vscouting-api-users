@@ -12,5 +12,7 @@ data class UserDTO(
     val name: String?,
     val surname: String?,
     val birthDate: LocalDate?,
-    val nationality: String?
+    val nationality: String?,
+    val credentials: UUID? = null,
+    val subscriptions: List<UserSubscriptionDTO>? = null,
 )

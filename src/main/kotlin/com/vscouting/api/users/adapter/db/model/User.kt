@@ -27,7 +27,10 @@ data class User(
     @Column(nullable = true, length = 100)
     var nationality: String? = null,
 
-    @OneToOne(mappedBy = "user", cascade = [CascadeType.PERSIST], fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var credentials: UserCredentials? = null,
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    var subscriptions: List<UserSubscription>? = null,
 
 )

@@ -47,9 +47,7 @@ class UserSubscriptionsController(
         @RequestBody userUpdateSubscriptionRequest: UserUpdateSubscriptionRequest
     ): UserSubscriptionResponse = updateUserSubscriptionPortIn.execute(
         userId,
-        userUpdateSubscriptionRequest.copy(
-            id = id
-        ).toDTO()
+        userUpdateSubscriptionRequest.toDTO(id)
     )
 
 }

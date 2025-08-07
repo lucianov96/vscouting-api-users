@@ -29,8 +29,8 @@ fun UserSubscriptionDTO.toEntity(userId: UUID) = UserSubscription(
     startDate = if (this.status == SubscriptionStatus.ACTIVE) LocalDateTime.now() else null,
     modifiedDate = if (this.status == SubscriptionStatus.ACTIVE) LocalDateTime.now() else null,
     endDate = if (this.status == SubscriptionStatus.ACTIVE) LocalDateTime.now().plusYears(1) else null,
-    subscriptionType = subscriptionType,
+    subscriptionType = subscriptionType!!,
     status = status,
-    leagues = leagues,
+    leagues = leagues!!,
     user = User(id = userId)
 )

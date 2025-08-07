@@ -34,6 +34,7 @@ data class UserCredentials(
     @Column(name = "login_attempts")
     var loginAttempts: Int = 0,
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     var status: Status = Status.ACTIVE,
 

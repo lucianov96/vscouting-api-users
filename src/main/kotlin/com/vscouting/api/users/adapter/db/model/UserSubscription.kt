@@ -7,6 +7,8 @@ import java.time.LocalDateTime
 import java.util.UUID
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.JoinColumn
@@ -24,30 +26,32 @@ data class UserSubscription(
     val id: UUID? = null,
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = true)
-    val user: User?,
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = false)
+    val user: User,
 
     @Column(name = "amount", nullable = true)
-    val amount: Double?,
+    val amount: Double? = null,
 
     @Column(name = "service_amount", nullable = true)
-    val serviceAmount: Double?,
+    val serviceAmount: Double? = null,
 
     @Column(name = "amount_diff", nullable = true)
-    val amountDiff: Double?,
+    val amountDiff: Double? = null,
 
     @Column(name = "start_date", nullable = true)
-    val startDate: LocalDateTime?,
+    val startDate: LocalDateTime? = null,
 
     @Column(name = "modified_date", nullable = true)
-    val modifiedDate: LocalDateTime?,
+    val modifiedDate: LocalDateTime? = null,
 
     @Column(name = "end_date", nullable = true)
-    val endDate: LocalDateTime?,
+    val endDate: LocalDateTime? = null,
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "subscription_type", nullable = false)
     val subscriptionType: SubscriptionType,
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     val status: SubscriptionStatus,
     
